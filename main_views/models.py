@@ -7,14 +7,6 @@ class Book(models.Model):
     author = models.CharField(max_length=200)
     published_year = models.IntegerField()
     genre = models.CharField(max_length=100)
-    slug = models.SlugField(blank=True)
-
-
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
 
 
     def __str__(self):
